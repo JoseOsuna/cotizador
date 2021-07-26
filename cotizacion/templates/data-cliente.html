@@ -1,0 +1,201 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+    Generar Cotizacion
+{% endblock %}
+
+{% block content %}
+    <div class="desing-background" id="content-captura">
+
+        <div class="container-fluid">
+            <div class="pt-4 pb-5 d-flex flex-row-reverse bd-highlight">
+                <a href="{% url 'index' %}" class="btn-close btn-close text-white bg-dark rounded-circle p-3 mx-3" id="">
+                    
+                </a> 
+
+                <img class="" src="{% static 'img/Componente 4 – 1.png' %}" alt="">
+            </div>
+
+            <div class="container px-5 ">
+
+                <div class="my-2" id="chat-content" >
+                    <div class="d-flex lex-grow-1">
+                        <div class="flex-shrink-1 bd-highlight ">
+                          <img class="w-75" src="{% static 'img/Enmascarar grupo 1.png' %}" alt="...">
+                        </div>
+    
+                        <div class="flex-grow-1 ml-3 mt-3">
+                            <div class="box-chat py-2 px-3 mb-2 rounded-3 fs-5">
+                                <span class="text-warning">El Plan Básico,</span> es una buena opción para paginas web corporativa para hablar de tu empresa y servicios, mira lo que incluye y personalizalo
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+    
+                    
+                </div>
+                
+                <div class="row">
+                    <div class="col-12 col-lg-7">
+
+
+                        <div class="my-2 text-center d-grid gap-5">
+                            <button type="button" class="btn bg-blue py-4 text-white fw-bold">
+                                Generar Cotización
+                            </button>
+                        </div>
+
+                        <div class="text-center px-4 mt-4">
+                            <p> <i class="fa fa-search"></i> Agregar <span class="text-warning">Quickuo</span> gratis a un sitio web</p>
+                        </div>
+                    </div>
+                </div>
+
+                  <div class="col-12 col-lg-5">
+                      
+
+                        
+                  </div>
+                </div>
+            </div>
+
+            
+
+        </div>
+
+
+  
+            <!-- Modal articulos -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header border-0 position-relative">
+                            <h5 class="modal-title text-left" id="exampleModalLabel">Añadir nuevo articulo</h5>
+                                <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
+                        
+                        </div>
+                        <div class="modal-body">
+                            <div class="card m-1 p-2" v-for="(art, key) in articles" v-on:click="add_use_articles(key, 'articles')">
+                                 <span v-html="art.fields.desc"></span> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Modal servicios -->
+
+            <div class="modal fade" id="modalServicio" tabindex="-1" aria-labelledby="modalServicioLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header border-0 position-relative">
+                            <h5 class="modal-title text-left" id="modalServicioLabel">Añadir nuevo articulo</h5>
+                                <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
+                        
+                        </div>
+                        <div class="modal-body">
+                            <div class="card m-1 p-2" v-for="(itm, key) in services" v-on:click="add_use_articles(key, 'services')">
+                                 <span v-html="itm.fields.desc"></span> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+{% endblock %}
+
+
+{% block scriptsHeader %}
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+{% endblock %}
+
+
+{% block scriptsfooter %}
+
+<script>
+    new Vue({
+        el: '#content-captura',
+        mounted () {
+          
+        },
+        methods: {
+            add_use_articles(key, type){
+                {% comment %} console.log(this.articles[key]) {% endcomment %}
+
+                if(type == "articles"){
+                    this.item_use.push(this.articles[key])
+                    this.articles = this.delete_for_array(this.articles, key)
+                }
+
+                if(type == "services"){
+                    this.item_use.push(this.services[key])
+                    this.services = this.delete_for_array(this.services, key)
+                }
+
+                var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+                var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+                })
+
+            },
+
+            delete_for_array(array, key){
+                var new_array = [];
+
+                array.forEach(function(element, index){
+                    if(index != key){
+                        new_array.push(element);
+                    }
+                });
+                return new_array; 
+
+            },
+            delete_article_select(key){
+
+                var new_element;
+                var element_type;
+
+                this.item_use.forEach(function(elemento ,i){
+
+                    if(i == key){
+                        if(elemento.model == 'aps.service'){
+                            new_element = elemento;
+                            element_type = elemento.model;
+                        }
+
+                        if(elemento.model == 'aps.article'){
+                            new_element = elemento;
+                            element_type = elemento.model;
+                        } 
+                    }    
+                });
+
+                if(element_type == 'aps.service'){
+                    this.services.push(new_element);
+                }
+
+                if(element_type == 'aps.article'){
+                    this.articles.push(new_element);
+                }
+
+                this.item_use = this.delete_for_array(this.item_use, key)
+            }
+        },
+        data () {
+            return {
+                services: {{ services|safe  }},
+                articles: {{ articles|safe  }},
+                item_use: []
+            }
+        }
+      })
+</script>
+
+{% endblock %}

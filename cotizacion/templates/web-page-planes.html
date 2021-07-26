@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+    Diseño de Páginas Web
+{% endblock %}
+
+{% block content %}
+    <div class="desing-background" id="content-captura">
+
+        <div class="container-fluid">
+            <div class="pt-4 pb-5 d-flex flex-row-reverse bd-highlight">
+                <a href="{% url 'index' %}" class="btn-close btn-close text-white bg-dark rounded-circle p-3 mx-3" id="">
+                    
+                </a> 
+
+                <img class="" src="{% static 'img/Componente 4 – 1.png' %}" alt="">
+            </div>
+
+            <div class="container px-5 ">
+
+                <div class="my-2" id="chat-content" >
+                  
+                    <div class="d-flex lex-grow-1">
+                        <div class="flex-shrink-1 bd-highlight ">
+                          <img class="w-75" src="{% static 'img/Enmascarar grupo 1.png' %}" alt="...">
+                        </div>
+    
+                        <div class="flex-grow-1 ml-3 mt-3">
+                            <div class="box-chat py-1 px-2 mb-2 rounded-3 fs-5">
+                                <span class="text-warning">{{ service }},</span> excelente, tenemos varios planes disponibles que se pueden ajustar a tus necesidades, por favor selecciona una opción
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="my-4">
+                    <a class="text-decoration-none text-dark" href="{% url 'services' %}"><h4><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                        Ver todos los Servicios</h4></a>
+                </div>
+
+                <div class="row card-list-articles">
+                    {% for p in planes %}
+                      <div class="col-6 col-lg-4 mb-4 px-3">
+                        <a href="{% url 'cotizacion' plan=p.name service=service %}" class="text-decoration-none text-dark">
+                          <div class="card shadow bg-body rounded-3">
+                              <img src="{{ p.image.url }}" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                <h5 class="card-title text-center">{{ p.name }}</h5>
+                                <p class="card-text">{{ p.desc }}</p>
+                              </div>
+                          </div>
+                        </a>
+                      </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="text-center px-4 mt-4">
+                <p> <i class="fa fa-search"></i> Agregar <span class="text-warning">Quickuo</span> gratis a un sitio web</p>
+            </div>
+
+        </div>
+
+        
+    </div>
+{% endblock %}

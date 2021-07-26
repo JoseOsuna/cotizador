@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+Cotizador
+{% endblock %}
+
+{% block content %}
+    <div class="index-background" id="content-index-captura">
+        
+        
+        <input type="checkbox" id="check">
+        <label class="chat-btn" for="check">
+
+            <div id="msgdiv" class="bg-white chat-msg-position comment shadow-lg p-3 mb-5 bg-body rounded" id="chat-msg">
+                <div class="position-absolute btn-close" id="closeMsg">
+                    
+                </div>
+                
+                <img class="border border-2 rounded-circle translate-middle" src="{% static 'img/Enmascarar grupo 1.png' %}" alt="...">
+   
+                <div class="text-center mb-2 mt-4">
+                    Hola y bienvenido, aquí puedes cotizar de manera inmediata y fácil nuestros servicios
+                </div> 
+            </div>
+            
+            <i class="fa fa-search comment"></i> 
+            <i class="fa fa-close close"></i> 
+        </label>
+            
+        <div class="wrapper">
+            <div class="header-chat py-3">
+                <div class="row">
+                    <div class="col-3 text-center ">
+                        <div class="position-absolute">
+                            <img class="w-75 border border-2 rounded-circle" src="{% static 'img/Enmascarar grupo 1.png' %}" alt="...">
+
+                                <div class="rounded-circle bg-success p-2 position-absolute activate-chat-position translate-middle"></div>
+                        </div>
+                    </div>
+                    <div class="col-9 pl-5">
+                        <h6 class="text-left ">Asistente Comercial</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-form px-4 mt-5">
+                <div class="my-2" id="chat-content" >
+                    <div class="d-flex lex-grow-1">
+                        <div class="flex-shrink-1 bd-highlight ">
+                          <img class="w-75" src="{% static 'img/Enmascarar grupo 1.png' %}" alt="...">
+                        </div>
+
+                        <div class="flex-grow-1 ml-3">
+                            <div class="box-chat py-1 px-2 mb-2 rounded">
+                                Hola y bienvenido, aquí puedes cotizar de manera inmediata y fácil nuestros servicios
+                            </div>
+                            <div class="box-chat py-1 px-2 mb-2 rounded">
+                                Un placer saludarlo ¿En qué servicio esta interesado?
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+
+                <div class="d-grid gap-2">
+                    {% for s in services %}
+                        <a class="btn btn-outline-warning btn-chat" href="{% url 'planes' service=s.name %}">
+                            {{ s.name }}
+                        </a>
+                    {% endfor %}
+
+                    <a class="btn btn-outline-warning btn-chat" href="{% url 'services' %}">
+                        Ver todos los Servicios
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center px-4 mt-4">
+                <p> <i class="fa fa-search"></i> Agregar <span class="text-warning">Quickuo</span> gratis a un sitio web</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

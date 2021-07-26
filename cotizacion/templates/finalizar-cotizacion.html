@@ -1,0 +1,134 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+    Generar Cotizacion
+{% endblock %}
+
+{% block content %}
+    <div class="desing-background" id="content-captura">
+
+        <div class="container-fluid">
+            <div class="pt-4 pb-5 d-flex flex-row-reverse bd-highlight">
+                <a href="{% url 'index' %}" class="btn-close btn-close text-white bg-dark rounded-circle p-3 mx-3" id="">
+                    
+                </a> 
+
+                <img class="" src="{% static 'img/Componente 4 – 1.png' %}" alt="">
+            </div>
+
+            <div class="container px-5 ">
+
+                <div class="my-2" id="chat-content" >
+                    <div class="d-flex lex-grow-1">
+                        <div class="flex-shrink-1 bd-highlight ">
+                          <img class="w-75" src="{% static 'img/Enmascarar grupo 1.png' %}" alt="...">
+                        </div>
+    
+                        <div class="flex-grow-1 ml-3 mt-3">
+                            <div class="box-chat py-2 px-3 mb-2 rounded-3 fs-5">
+                                <span class="text-warning">Tu cotización esta casi lista,</span> para finalizar y certificar la oferta, déjanos tus datos para agendar una reunión con uno de nuestros agentes comerciales
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="row">
+                  <div class="col-12 col-lg-6">
+                  <form>
+                    <div class="form-floating my-2">
+                        <input type="text" class="form-control bg-gray" id="name" placeholder="Nombre Completo" value="">
+                        <label for="name">Nombre Completo</label>
+                    </div>
+
+                    <div class="form-floating my-2">
+                        <input type="text" class="form-control bg-gray" id="company-name" placeholder="Nombre de Empresa" value="">
+                        <label for="company-name">Nombre de Empresa</label>
+                    </div>
+
+                    <div class="form-floating my-2">
+                        <input type="email" class="form-control bg-gray" id="email" placeholder="Correo electrónico" value="">
+                        <label for="email">Correo electrónico</label>
+                    </div>
+
+                    <div class="row g-2">
+                        <div class="col-md">
+                            <div class="form-floating my-2">
+                                <input type="text" class="form-control bg-gray" id="phone" placeholder="Teléfono celular" value="">
+                                <label for="phone">Teléfono celular</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md">
+                            <div class="form-floating my-2">
+                                <input type="text" class="form-control bg-gray" id="city" placeholder="Ciudad" value="">
+                                <label for="city">Ciudad</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="my-2">
+                        <div class="form-check">
+                        <input class="form-check-input" required type="checkbox" value="" id="flexCheckIndeterminate">
+                        <label class="form-check-label" for="flexCheckIndeterminate">
+                            He leído y acepto los Términos & condiciones y Políticas de Privacidad
+                        </label>
+                        </div>
+                    </div>
+
+                    <div class="my-4 text-center d-grid gap-5">
+                            
+                            <button type="button" class="btn bg-blue py-4 pr-5 text-white fw-bold">
+                                Generar Cotización
+                            </button>
+                    </div>
+                  </form>
+
+
+                  </div>
+
+                  <div class="col-12 col-lg-6">
+                      
+
+                        
+
+                        <div class="text-center px-4 mt-4">
+                            <p> <i class="fa fa-search"></i> Agregar <span class="text-warning">Quickuo</span> gratis a un sitio web</p>
+                        </div>
+                  </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block scriptsHeader %}
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+{% endblock %}
+
+
+{% block scriptsfooter %}
+
+<script>
+    new Vue({
+        el: '#content-captura',
+        mounted () {
+          
+        },
+        methods: {
+            
+        },
+        data () {
+            return {
+                
+            }
+        }
+      })
+</script>
+
+{% endblock %}

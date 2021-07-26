@@ -1,0 +1,174 @@
+
+/* index  */
+.index-background{
+    background-image: url('/static/img/Captura de Pantalla -1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.card-list-articles .card:hover{
+    background-color: #E19A2F !important;
+    color:#EFF4FC;
+}
+
+/* backgrounds */
+
+.bg-gray{
+    background-color: #EDEDED;
+}
+
+.bg-orange{
+    background-color: #E2992E;
+}
+
+.bg-blue{
+    background-color: #2699FB;
+}
+
+
+/* font-size */
+
+.font-size-14{
+    font-size: 14px;
+}
+
+
+.momey{
+    text-decoration-line: line-through!important;
+    text-decoration-style: dashed;
+    padding: 0 2%;
+}
+
+
+
+/* chat popup */
+.chat-btn {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+    z-index: 99999;
+}
+
+.chat-btn .close {
+    display: none
+}
+
+.chat-btn i {
+    transition: all 0.9s ease
+}
+
+#check:checked~.chat-btn i {
+    display: block;
+    pointer-events: auto;
+    transform: rotate(180deg)
+}
+
+#check:checked~.chat-btn .comment {
+    display: none
+}
+
+.chat-btn i {
+    font-size: 22px;
+    color: #fff !important
+}
+
+.chat-btn {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #E4A630;
+    color: #000;
+    border: none
+}
+
+.wrapper {
+    position: absolute;
+    right: 30px;
+    bottom: 100px;
+    max-width: 350px;
+    background-color: #fff;
+    border-radius: 5px;
+    opacity: 0;
+    transition: all 0.4s
+}
+
+#check:checked~.wrapper {
+    opacity: 1
+}
+
+.header-chat {
+    background-color: #E4A630;
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom: 10px;
+    color: #fff
+}
+
+.chat-form textarea {
+    resize: none
+}
+
+.form-control:focus,
+.btn-chat:focus {
+    box-shadow: none
+}
+
+
+.btn-chat:focus,
+.btn-chat:hover {
+    color: #fff;
+}
+
+#check {
+    display: none !important
+}
+
+.box-chat{
+    background: #EFF4FC 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.activate-chat-position{
+    left: 74%!important;
+    top: 84%!important;
+}
+
+.chat-msg-position {
+    position: absolute;
+    left: -281px;
+    top: -200%;
+}
+
+.chat-msg-position img{
+    position: absolute;
+    top: 0%;
+    left: 50%!important;
+    width: 25%;
+}
+
+.chat-msg-position .btn-close {
+    left: 92%!important;
+    top: 4% !important;
+}
+
+
+.chat-msg{
+    z-index: 9999;
+    max-width: 350px;
+    border-radius: 25px;
+    transition: all 0.4s
+}
+
+
+/* page desing */
+
+.desing-background{
+    background-image: url('/static/img/Grupo 76.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

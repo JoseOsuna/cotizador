@@ -1,0 +1,22 @@
+.modal-dialog-scrollable .modal-content {
+    overflow: unset !important;
+}
+
+.btn-close, .btn-close2  {
+    box-sizing: content-box;
+    cursor: pointer;
+    background-color: #E0E0E0;
+    border-radius: .25rem;
+    box-shadow: 0 5px 20px 0 rgb(34 41 47 / 10%);
+    border-radius: 50%!important;;
+    -webkit-transition: all .23s ease .1s;
+    transition: all .23s ease .1s;
+    opacity: 0.8 !important;
+    -webkit-transform: translate(8px,-2px);
+    -ms-transform: translate(8px,-2px);
+    transform: translate(8px,-2px);
+}
+
+.btn-close:hover, .btn-close2:hover{
+    opacity: 1 !important;
+}
