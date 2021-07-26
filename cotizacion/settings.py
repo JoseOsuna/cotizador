@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'cotizacion.wsgi.application'
 # }
 
 DATABASES = {
-    'default': jd_database_url.config(
+    'default': dj_database_url.config(
         default=config('DATABASE_URL')
     )
 }
