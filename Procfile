@@ -1,0 +1,1 @@
+web: gunicorn cotizacion.wsgi --log-file -

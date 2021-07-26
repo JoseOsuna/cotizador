@@ -30,5 +30,4 @@ urlpatterns = [
     path('finalizar-cotizacion/', finalizar_cotizacion, name="finalizar-cotizacion")
 ]
 
-
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
